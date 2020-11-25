@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+        body {
+            background-color: coral;
+        }
+        * {
+            box-sizing: border-box;
+        }
+        .row {
+            display: flex;
+        }
+
+        /* Create three equal columns that sits next to each other */
+        .column {
+            /*flex: 33%;*/
+            flex-basis: 33%;
+            padding: 10px;
+        }
+        #headline{
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+
+<h1 id="headline">Dog Home</h1>
+<div>
+    <form>
+        <input type="text" placeholder="brugernavn">
+        <input type="text" placeholder="password">
+        <input type="submit" value="Log ind" >
+    </form>
+</div>
+<div class="row">
+    <div class="column" style="background-color:#aaa">
+        <h2>Opret Owner: Navn</h2>
+        <form>
+            <input type="text" placeholder="navn">
+            <input type="submit" value="Opret" >
+        </form>
+        <h3>Ole</h3>
+        <form>
+            <select>
+                <option>Buster</option>
+                <option>Fido</option>
+                <input type="submit" value="Gem">
+            </select>
+        </form>
+        <h3>Anna</h3>
+        <form>
+            <select>
+                <option>Buster</option>
+                <option>Fido</option>
+                <input type="submit" value="Gem">
+            </select>
+        </form>
+    </div>
+    <div class="column" style="background-color:#bbb;">
+        <h2>Adopteret hunde:</h2>
+        <h3>Jens : Max</h3>
+        <img width="300" th:src="@{https://www.dropbox.com/s/se91dufiaki66du/Max.jpg(dl='1')}"/>
+
+    </div>
+    <div class="column" style="background-color:#ccc;">
+        <h2>Registrer hund:</h2>
+        <form>
+            <input type="text" placeholder="navn">
+            <input type="text" placeholder="billede URL">
+            <input type="submit" value="Registrer" >
+        </form>
+        <h4>Buster</h4>
+        <img width="300" th:src="@{https://www.dropbox.com/s/00p8qhhpf8pk380/Buster.jpg(dl='1')}"/>
+        <h4>Fido</h4>
+        <img width="300" th:src="@{https://www.dropbox.com/s/sx2ro26pjtily7x/Fido.jpeg(dl='1')}"/>
+        <fom>
+            <input type="submit" name="frem" value="Tilbage">
+            <input type="submit" name="frem" value="Frem">
+        </fom>
+<!--        <h4>Max</h4>-->
+<!--        <img width="300" th:src="@{https://www.dropbox.com/s/se91dufiaki66du/Max.jpg(dl='1')}"/>-->
+<!--        <h4>Pluto</h4>-->
+<!--        <img width="300" th:src="@{https://www.dropbox.com/s/lpyj58v9jedvmbi/Pluto.jpg(dl='1')}"/>-->
+<!--        <h4>Sleepy</h4>-->
+<!--        <img width="300" th:src="@{https://www.dropbox.com/s/iovu31nl0vjl91u/Sleepy.jpg(dl='1')}"/>-->
+    </div>
+</div>
+<!--<div>-->
+<!--    <img width="100%" src="https://www.dropbox.com/s/zri11lhvn1g4d13/doghome.jpg?dl=1">-->
+<!--</div>-->
+</body>
+</html>

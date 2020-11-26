@@ -42,7 +42,7 @@
             <groupId>mysql</groupId>
             <artifactId>mysql-connector-java</artifactId>
             <scope>runtime</scope>
-            <version>8.0.21</version>
+            <version>5.0.5</version>
 <!-- Her skal man evt. tilføje <version></version>, an på hvilken Java version man har-->
         </dependency>
         <dependency>

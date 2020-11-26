@@ -1,4 +1,4 @@
-package com.eikholm.jpademo10.Util;
+package com.eikholm.jpademo10;
 
 import com.eikholm.jpademo10.model.Owner;
 import com.eikholm.jpademo10.repositories.OwnerRepository;

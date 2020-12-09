@@ -24,6 +24,7 @@ public class DogController {
     public DogController(DogService dogService, OwnerService ownerService) {
         this.dogService = dogService;
         this.ownerService = ownerService;
+
     }
 
 
@@ -34,6 +35,7 @@ public class DogController {
         if(usr.equals("doglover") && pwd.equals("vow")) {
             httpSession.setAttribute(LOGINSTATUS, "yes");
         }
+
         return "redirect:/dogs";
     }
 
@@ -68,12 +70,7 @@ public class DogController {
     }
 
     @RequestMapping(value = "/dogs/addDog", method = RequestMethod.POST)
-    public String addDog(Dog dog, @RequestParam("owner") String ownerId){
-        Optional<Owner> owner = ownerService.findById(Long.parseLong(ownerId));
-        if(owner.isPresent()){
-            dog.setOwner(owner.get());
-            owner.get().getDogs().add(dog);
-        }
+    public String addDog(Dog dog){
         dogService.save(dog);
         return "redirect:/dogs";
     }

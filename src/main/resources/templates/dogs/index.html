@@ -27,7 +27,7 @@
 </head>
 <body>
 <h1 id="headline">Dog Home</h1>
-<div>
+<div id="loginDiv">
     <form method="post" action="/dogs/login" >
         <input type="text" name="username" placeholder="brugernavn" value="doglover">
         <input type="text" name="password" placeholder="password" value="vow">
@@ -37,44 +37,44 @@
 <div th:if="${session.loginstatus == 'yes'}" class="row">
     <div class="column" style="background-color:#aaa">
         <h2>Opret samarit: Navn</h2>
-        <form>
-            <input type="text" placeholder="navn">
-            <input type="submit">
+        <form action="/dogs/addOwner" method="post">
+            <input type="text" placeholder="navn" name="firstName">
+            <input type="submit" value="gem">
         </form>
-        <h2>Owners:</h2>
+        <h2>Giv hund til ejer:</h2>
         <form action="/dogs/adopt" method="post" th:each="owner : ${owners}">
             <input type="text" th:value="${owner.firstName}" name="firstName">
             <input type="hidden" th:value="${owner.id}" name="id">
             <select name="dogid">
-                <option th:each="dog : ${ownerlessdogs}" th:value="${dog.id}" th:text="${dog.name}" ></option>
+                <option th:each="dog : ${ownerlessdogs}" th:value="${dog.id}" th:text="${dog.name}">Ejerløse Hunde</option>
             </select>
             <input type="submit" value="Gem">
         </form>
     </div>
     <div class="column" style="background-color:#bbb;">
-        <h2>Adopter hund</h2>
-
+        <h2>Ejerløse hunde</h2>
+        <div th:each="dog : ${ownerlessdogs}">
+            <h3 th:text="${dog.name}"> Hundens navn </h3>
+            <img width="400" th:src="${dog.imageUrl}">
+        </div>
     </div>
     <div class="column" style="background-color:#ccc;">
         <h2>Opret hund:</h2>
         <h3>navn og billede URL</h3>
-        <h4>Buster</h4>
         <form method="post" action="/dogs/addDog">
             Navn:
             <input type="text" name="name"></br>
             Billede url:
             <input type="text" name="imageUrl">
-            <select name="owner" >
-                <option th:each="owner:${owners}" th:value="${owner.id}" th:text="${owner.firstName}"></option>
-            </select>
+
             <input type="submit" value="Gem">
         </form>
         <div th:each="dog:${dogs}">
-            <h3 th:text="${dog.name}"></h3>
+            <h3 th:text="${dog.name}"> Hundens navn </h3>
+            <h3 th:text="${dog.getOwner().getFirstName()}"> Ejers navn</h3>
             <img width="400" th:src="${dog.imageUrl}">
         </div>
     </div>
 </div>
-
 </body>
 </html>

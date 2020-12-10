@@ -25,8 +25,6 @@ public class DBConnection {
      * @return
      *//*
 
-        awdawdawd
-
     private static Connection conn;
 
 

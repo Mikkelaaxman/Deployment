@@ -23,7 +23,7 @@ public class OwnerRepositoryIntegrationTest {
         ownerRepository.save(new Owner());
         List<Owner> owners = (List<Owner>) ownerRepository.findAll();
 
-        assertTrue(owners.size()==1);
+        assertTrue(owners.size()>1);
 
     }
 }

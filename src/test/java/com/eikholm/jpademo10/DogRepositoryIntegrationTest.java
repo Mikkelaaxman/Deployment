@@ -16,7 +16,7 @@ import javax.sql.DataSource;
 
 import static org.junit.Assert.assertNotNull;
 
-@ExtendWith(SpringExtension.class)
+@ExtendWith(SpringExtension.class) //Burde vi ikke behøve med den version boot vi kører.
 @DataJpaTest
 public class DogRepositoryIntegrationTest {
     @Autowired private DataSource dataSource;
@@ -24,7 +24,7 @@ public class DogRepositoryIntegrationTest {
     @Autowired private EntityManager entityManager;
     @Autowired private DogRepository dogRepository;
 
-    //Forstår ikke hvorfor det her ikke virker
+    //Forstår ikke hvorfor det her ikke virker. De er alle null
     @Test
     public void injectedComponentsAreNotNull(){
         assertNotNull(dataSource);
@@ -32,7 +32,7 @@ public class DogRepositoryIntegrationTest {
         assertNotNull(entityManager);
         assertNotNull(dogRepository);
     }
-    //Forstår ikke hvorfor det her ikke virker
+    //Forstår ikke hvorfor det her ikke virker. dogRepository er null?
     @Test
     public void whenSaved_thenFindsById() {
 
@@ -46,6 +46,6 @@ public class DogRepositoryIntegrationTest {
         //Ellers ved jeg der findes en getLastId() metode som er god til at teste auto-incrementing IDs
         dogRepository.save(testDog);
         assertNotNull(dogRepository.findById((long) 999));
-        dogRepository.delete(testDog);
+        dogRepository.delete(testDog); //Rydder vores test op
     }
 }

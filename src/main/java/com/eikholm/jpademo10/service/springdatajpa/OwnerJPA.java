@@ -45,4 +45,5 @@ public class OwnerJPA implements OwnerService {
     public Optional<Owner> findById(Long aLong) {
         return ownerRepository.findById(aLong);
     }
+
 }

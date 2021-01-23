@@ -61,8 +61,9 @@ public class DogJPA implements DogService {
     @Override
     public List<Dog> getDogs(int start, int number) {
         List<Dog> list = new ArrayList<>();
-        Pageable getNDogs = PageRequest.of(start,number, Sort.by("name"));
-        dogRepository.findAll(getNDogs).forEach(list::add);
+
+        //Pageable getNDogs = PageRequest.of(start,number, Sort.by("name"));
+        dogRepository.findAll().forEach(list::add);
         return list;
     }
 }

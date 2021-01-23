@@ -39,6 +39,7 @@ public class DogUnitTest {
     @Test
     public void methodTests(){
         try{
+            //Indeholder Dog class metoder? Burde teste om metoderne hedder det rigtige.
             assertTrue(Arrays.stream(Dog.class.getDeclaredMethods()).count() > 1);
         } catch (SecurityException e) {
             e.printStackTrace();
